@@ -1,3 +1,4 @@
+
 function convertDateFormat(inputDate) {
     // Split the input date string into day, month, and year
     var parts = inputDate.split('-');
@@ -95,18 +96,34 @@ document.getElementById("addRollButton").addEventListener("click", function() {
         tbody.removeChild(row);
     });
 
-
-
-    const newRoll = document.getElementById("newRoll").value;
-
-    let arr = studentData[newRoll];
+    const newRoll = document.getElementById("newRoll").value.toUpperCase();
+    let arr;
+    if(newRoll.substring(0, 2)=="23")
+    {
+        arr = firstYear[newRoll.substr(3, 2)];
+    }    
+    else if(newRoll.substring(0, 4)=="2K22")
+    {
+        arr = secondYear[newRoll.substr(5, 2)];
+    }
+    else if(newRoll.substring(0, 4)=="2K21" || newRoll.substring(0, 4)=="2K20" )
+    {
+        arr = studentData[newRoll];
+    }
+    else 
+    {
+        alert("Enter Valid Roll No 2K20-23");
+        return;
+    }
     let stampArr = [];
     for(let i=0; i<arr.length; i++)
     {
         stampArr[i]= myDates[arr[i]] ? convertDateFormat(myDates[arr[i]]) : null;
     }
+
     console.log(arr)
     console.log(stampArr)
+
     const stampArrWithIndexes = stampArr.map((value, index) => ({ value, index }));
 
     // Sort the array of objects based on the stamp values
@@ -114,10 +131,13 @@ document.getElementById("addRollButton").addEventListener("click", function() {
     
     // Reorder the original arr based on the sorted stampArrWithIndexes
     const sortedArr = stampArrWithIndexes.map(obj => arr[obj.index]);
+
     console.log(sortedArr)
+
     for(var i=0; i<arr.length; i++)
     {
         if(myDates[sortedArr[i]])
             byRoll(sortedArr[i]);
     }
+
 });
