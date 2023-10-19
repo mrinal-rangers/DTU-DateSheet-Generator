@@ -83,7 +83,10 @@ button:hover {
     /* Style for the container div */
     .container {
         position: relative;
-        width: 100%;
+        width: 100%;        
+        margin: 0;
+        padding: 0;
+
       }
   
       /* Style for the image */
@@ -91,6 +94,8 @@ button:hover {
         width: 100%;
         height: auto; /* Maintain the image's aspect ratio */
         display: block; /* Remove any extra space below the image */
+        margin: 0;
+        padding: 0;
       }
   
       /* Style for the text on top of the image */
@@ -101,7 +106,7 @@ button:hover {
         transform: translate(-50%, -50%); /* Center the text */
         color: white; /* Text color */
         background: rgba(0, 0, 0, 0.7); /* Background color with transparency */
-        padding: 10px; /* Padding around the text */
+        padding: 30px; /* Padding around the text */
         text-align: center; /* Center-align the text */
       }
   
