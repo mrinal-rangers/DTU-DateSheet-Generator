@@ -98,15 +98,8 @@ document.getElementById("addRollButton").addEventListener("click", function() {
 
     const newRoll = document.getElementById("newRoll").value.toUpperCase();
     let arr;
-    if(newRoll.substring(0, 2)=="23")
-    {
-        arr = firstYear[newRoll.substr(3, 2)];
-    }    
-    else if(newRoll.substring(0, 4)=="2K22")
-    {
-        arr = secondYear[newRoll.substr(5, 2)];
-    }
-    else if(newRoll.substring(0, 4)=="2K21" || newRoll.substring(0, 4)=="2K20" )
+
+    if(newRoll.substring(0, 4)=="2K21" || newRoll.substring(0, 4)=="2K20" || newRoll.substring(0, 2)=="23" || newRoll.substring(0, 4)=="2K22")
     {
         arr = studentData[newRoll];
     }
