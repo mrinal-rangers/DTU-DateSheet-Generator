@@ -1,76 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .footer-credits {
-            display: inline;
-        }
-        
-        .footer-credits p {
-            margin: 0;
-        }
-    </style>
-
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body style="margin-left: 0px; margin-right: 0px;">
-    <div class="container">
-        <img src="bg.png" alt="Your Image" class="image">
-        <div class="text">
-            DTU Exam DateSheet Generator       
-            <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
-            <button id="addRollButton">Generate</button>
-        <br><br>
-        </div>
+    <div id="cursor"></div>
 
-      </div>
-      <br><br>
- 
-<p> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
-    <table id="myTable">
-        <tr>
-            <th>Date</th>
-            <th>Subject Code</th>
-            <th>Subject Name</th>
-        </tr>
-    </table>
-    <br>
+    <div id="main">
+        <div class="container" >
+            <div id="box"></div>
+            <div id="mid_box"class="text">
+               <p> DTU Exam DateSheet Generator  </p>    
+                <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
+                <button id="addRollButton">Generate</button>
+            <br><br>
+            </div>
+            <div id="box2" class="c1"></div>
+          </div>
+          <br><br>
+     <div class="canvas_div_pdf">
+        <p id="p1"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
+        <table id="myTable">
+            <tr>
+                <th>Date</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+            </tr>
+        </table>
+        <br>
 
-<br><br>
+     </div>
+        
+        <button id="btn99">print as PDF</button>
 
-<h4>Add Additional Subjects (Optional)</h4>
+    
+    <br><br>
+        <div class="faq-content">
+            <div class="faq-question">
+              <input id="q1" type="checkbox" class="panel">
+              <div class="plus">+</div>
+              <label for="q1" class="panel-title">Add Additional Subjects (Optional)</label>
+              <div class="panel-content">
+                  <div id="add_col">
+                      <h4>Add Additional Subjects (Optional)</h4>
+                      <label for="newDate">Date:</label>
+                      <input type="date" id="newDate"><br>
+                      <label for="newCode">Subject Code:</label>
+                      <input type="text" id="newCode"><br>
+                      <label for="newSubject">Subject Name:</label>
+                      <input type="text" id="newSubject"><br>
+                      <button id="addRowButton">Add Row</button>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="faq-question">
+              <input id="q2" type="checkbox" class="panel">
+              <div class="plus">+</div>
+              <label for="q2" class="panel-title">Credits</label>
+              <div class="panel-content">
+                  <h4>Developer : Madhav Gupta (2K21/CO/262)</h4>
+                  <h4>UI design : Mrinal Deb (2K21/CO/292)</h4>
+              </div>
+            </div>
 
-    <div>
-        <label for="newDate">Date:</label>
-        <input type="date" id="newDate"><br>
-        <label for="newCode">Subject Code:</label>
-        <input type="text" id="newCode"><br>
-        <label for="newSubject">Subject Name:</label>
-        <input type="text" id="newSubject"><br>
-
-        <button id="addRowButton">Add Row</button>
+            <div class="faq-question">
+                <input id="q3" type="checkbox" class="panel">
+                <div class="plus">+</div>
+                <label for="q3" class="panel-title">Report Bug</label>
+                <div class="panel-content">
+                    <h4> Contact : 8851737950 </h4>
+                    <h4> Mail : <a href="mailto:mrinalenquiry@gmail.com" >mrinalenquiry@gmail.com</a> </h4>
+                </div>
+              </div>
 
     </div>
+   
 
     <script src="script.js"></script>
     <script src="names.js"></script>
     <script src="student.js"></script>
     <script src="dates.js"></script>
     <script src="timings.js"></script>
-    <footer>
-        <div class="footer-credits">
-            <p>Developer: <span class="developer-name">Madhav Gupta</span></p>
-            <p>UI and Design: <span class="designer-name">Mrinal Deb</span></p>
-        </div>
-    </footer>
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
 </body>
 </html>
