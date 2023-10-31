@@ -86,55 +86,58 @@ function byRoll(code)
 
 
 document.getElementById("addRollButton").addEventListener("click", function() {
-    // Display loading message or spinner
-    para.innerHTML = "Loading...";
+    const table = document.getElementById('myTable');
 
-    setTimeout(function() {
-        const table = document.getElementById('myTable');
-        const tbody = table.querySelector('tbody');
-        const rows = tbody.querySelectorAll('tr:not(:first-child)');
+    const tbody = table.querySelector('tbody');
 
-        // Remove all non-first rows from the table
-        rows.forEach(function(row) {
-            tbody.removeChild(row);
-        });
+    const rows = tbody.querySelectorAll('tr:not(:first-child)');
 
-        const newRoll = document.getElementById("newRoll").value.toUpperCase();
-        let arr;
+    // Remove all non-first rows from the table
+    rows.forEach(function(row) {
+        tbody.removeChild(row);
+    });
 
-        if (newRoll.substring(0, 4) == "2K21" || newRoll.substring(0, 4) == "2K20" || newRoll.substring(0, 2) == "23" || newRoll.substring(0, 4) == "2K22") {
-            para.innerHTML = ` ${newRoll} 's TimeTable `;
-            arr = studentData[newRoll];
-        } else {
-            alert("Enter Valid Roll No 2K20-23");
-            para.innerHTML = ""; // Clear loading message
-            return;
-        }
-        
-        let stampArr = [];
-        for (let i = 0; i < arr.length; i++) {
-            stampArr[i] = myDates[arr[i]] ? convertDateFormat(myDates[arr[i]]) : null;
-        }
+    const newRoll = document.getElementById("newRoll").value.toUpperCase();
+    para.innerHTML=`${newRoll} 's DateSheet`;
+    let arr;
 
-        const stampArrWithIndexes = stampArr.map((value, index) => ({ value, index }));
-        
-        // Sort the array of objects based on the stamp values
-        stampArrWithIndexes.sort((a, b) => a.value - b.value);
+    if(newRoll.substring(0, 4)=="2K21" || newRoll.substring(0, 4)=="2K20" || newRoll.substring(0, 2)=="23" || newRoll.substring(0, 4)=="2K22")
+    {
+        arr = studentData[newRoll];
+    }
+    else 
+    {
+        alert("Enter Valid Roll No 2K20-23");
+        return;
+    }
 
-        // Reorder the original arr based on the sorted stampArrWithIndexes
-        const sortedArr = stampArrWithIndexes.map(obj => arr[obj.index]);
 
-        for (var i = 0; i < arr.length; i++) {
-            if (myDates[sortedArr[i]]) {
-                byRoll(sortedArr[i]);
-            }
-        }
-        
-        // Clear loading message
-        para.innerHTML = `${newRoll}'s  DateSheet`;
-    }, 1000); // Add a 1-second loading delay
+    let stampArr = [];
+    for(let i=0; i<arr.length; i++)
+    {
+        stampArr[i] = myDates[arr[i]] ? convertDateFormat(myDates[arr[i]]) : null;
+    }
+
+    console.log(arr)
+    console.log(stampArr)
+
+    const stampArrWithIndexes = stampArr.map((value, index) => ({ value, index }));
+
+    // Sort the array of objects based on the stamp values
+    stampArrWithIndexes.sort((a, b) => a.value - b.value);
+    
+    // Reorder the original arr based on the sorted stampArrWithIndexes
+    const sortedArr = stampArrWithIndexes.map(obj => arr[obj.index]);
+
+    console.log(sortedArr)
+
+    for(var i=0; i<arr.length; i++)
+    {
+        if(myDates[sortedArr[i]])
+            byRoll(sortedArr[i]);
+    }
+
 });
-
 
 var crsr = document.querySelector("#cursor");
 document.addEventListener("mousemove", function (dets) {
@@ -175,4 +178,8 @@ document.addEventListener("mousemove", function (dets) {
         pdf.save("HTML-Document.pdf");
     });
 };
-  btn99.addEventListener("click",getPDF());
+function generatePDF() {
+    const element = document.querySelector("body");
+    html2pdf().from(element).save();
+}
+  btn99.addEventListener("click",generatePDF);
