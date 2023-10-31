@@ -36,7 +36,7 @@ th:first-child,
 td:first-child,
 th:nth-child(2),
 td:nth-child(2) {
-    width: 120px; /* Adjust the width as needed */
+    width: 120px; 
 }
 
 input[type="text"],
@@ -70,7 +70,6 @@ button:hover {
     width: 100%;
 }
 
-/* Media Query for Responsive Design */
 @media (max-width: 600px) {
     table {
         width: 100%;
@@ -80,7 +79,6 @@ button:hover {
     }
 }
 
-    /* Style for the container div */
     .container {
         position: relative;
         width: 100%;        
@@ -89,24 +87,24 @@ button:hover {
 
       }
   
-      /* Style for the image */
       .image {
         width: 100%;
-        height: auto; /* Maintain the image's aspect ratio */
-        display: block; /* Remove any extra space below the image */
+        height: auto; 
+        display: block; 
         margin: 0;
         padding: 0;
       }
   
-      /* Style for the text on top of the image */
       .text {
         position: absolute;
-        top: 50%; /* Adjust the top position as needed */
-        left: 50%; /* Adjust the left position as needed */
-        transform: translate(-50%, -50%); /* Center the text */
-        color: white; /* Text color */
-        background: rgba(0, 0, 0, 0.7); /* Background color with transparency */
-        padding: 30px; /* Padding around the text */
-        text-align: center; /* Center-align the text */
+        top: 50%;
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        color: white; 
+        background: rgba(0, 0, 0, 0.7); 
+        padding: 30px; 
+        text-align: center; 
       }
   
+
+

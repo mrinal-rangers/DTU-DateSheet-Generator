@@ -5,7 +5,7 @@ function convertDateFormat(inputDate) {
     
     // Check if the input format is valid
     if (parts.length === 3) {
-      var day = parts[0];
+      var day = parts[0].length==1 ? '0' + parts[0] : parts[0];
       var month = parts[1];
       var year = parts[2];
       
@@ -115,10 +115,12 @@ document.getElementById("addRollButton").addEventListener("click", function() {
         alert("Enter Valid Roll No 2K20-23");
         return;
     }
+
+
     let stampArr = [];
     for(let i=0; i<arr.length; i++)
     {
-        stampArr[i]= myDates[arr[i]] ? convertDateFormat(myDates[arr[i]]) : null;
+        stampArr[i] = myDates[arr[i]] ? convertDateFormat(myDates[arr[i]]) : null;
     }
 
     console.log(arr)
