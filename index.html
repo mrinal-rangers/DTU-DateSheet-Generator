@@ -3,6 +3,21 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
+<style>
+    @media print{
+        #main *:not(#main-content):not(#main-content *){
+            /* visibility: hidden; */
+            display: none;
+        } 
+         /* #main-content{
+          position: absolute;
+          /* top: 0; */
+          /* left: 0;  */
+         /* } */ 
+    }
+</style>
+
 <body style="margin-left: 0px; margin-right: 0px;">
     <div id="cursor"></div>
 
@@ -10,7 +25,7 @@
         <div class="container" >
 
             <div id="box"></div>
-            <div id="mid_box"class="text">
+            <div id="mid_box" class="text">
                <p> DTU Exam DateSheet Generator  </p>    
                 <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
                 <button id="addRollButton">Generate</button>
@@ -19,7 +34,7 @@
             <div id="box2" class="c1"></div>
           </div>
           <br><br>
-     <div class="html-content">
+     <div  class="html-content" id="main-content">
 
         <p id="p2"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
         <p id="p1">  </p>
@@ -31,9 +46,12 @@
             </tr>
         </table>
         <br>
+         <center>Generated using <a href="https://bit.ly/DTUexam">DTU Exam DateSheet Generator         </a></center>
+
      </div>
         
-        <button id="btn99">print as PDF</button>
+     <!-- <button id="btn99">print as PDF</button> -->
+     <button id="print">Print</button>
 
     
     <br><br>
@@ -87,6 +105,11 @@
     <script src="timings.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="path/to/html2pdf.js"></script>
-
+<script>
+    const printBtn=document.getElementById('print')
+    printBtn.addEventListener('click', function(){
+        print();
+    })
+</script>
 </body>
 </html>

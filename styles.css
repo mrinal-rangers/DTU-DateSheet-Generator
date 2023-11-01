@@ -263,8 +263,8 @@ button:hover {
         z-index: 99;
         transition: all linear 0.1s;
     }
- #btn99{
-        margin-left:79%;
+ #print{
+        margin-left:85%;
         font-size: 1.3rem;
     }
 
