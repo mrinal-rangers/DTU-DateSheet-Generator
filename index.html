@@ -1,76 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        footer {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
-        
-        .footer-credits {
-            display: inline;
-        }
-        
-        .footer-credits p {
-            margin: 0;
-        }
-    </style>
-
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body style="margin-left: 0px; margin-right: 0px;">
-    <div class="container">
-        <img src="bg.png" alt="Your Image" class="image">
-        <div class="text">
-            DTU Exam DateSheet Generator       
-            <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
-            <button id="addRollButton">Generate</button>
-        <br><br>
-        </div>
+    <div id="cursor"></div>
 
-      </div>
-      <br><br>
- 
-<p> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
-    <table id="myTable">
-        <tr>
-            <th>Date</th>
-            <th>Subject Code</th>
-            <th>Subject Name</th>
-        </tr>
-    </table>
-    <br>
+    <div id="main">
+        <div class="container" >
 
-<br><br>
+            <div id="box"></div>
+            <div id="mid_box"class="text">
+               <p> DTU Exam DateSheet Generator  </p>    
+                <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
+                <button id="addRollButton">Generate</button>
+            <br><br>
+            </div>
+            <div id="box2" class="c1"></div>
+          </div>
+          <br><br>
+     <div class="html-content">
 
-<h4>Add Additional Subjects (Optional)</h4>
+        <p id="p2"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
+        <p id="p1">  </p>
+        <table id="myTable">
+            <tr>
+                <th>Date</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+            </tr>
+        </table>
+        <br>
+     </div>
+        
+        <button id="btn99">print as PDF</button>
 
-    <div>
-        <label for="newDate">Date:</label>
-        <input type="date" id="newDate"><br>
-        <label for="newCode">Subject Code:</label>
-        <input type="text" id="newCode"><br>
-        <label for="newSubject">Subject Name:</label>
-        <input type="text" id="newSubject"><br>
+    
+    <br><br>
+        <div class="faq-content">
+            <div class="faq-question">
+              <input id="q1" type="checkbox" class="panel">
+              <div class="plus">+</div>
+              <label for="q1" class="panel-title">Add Additional Subjects (Optional)</label>
+              <div class="panel-content">
+                  <div id="add_col">
+                      <h4>Add Additional Subjects (Optional)</h4>
+                      <label for="newDate">Date:</label>
+                      <input type="date" id="newDate"><br>
+                      <label for="newCode">Subject Code:</label>
+                      <input type="text" id="newCode"><br>
+                      <label for="newSubject">Subject Name:</label>
+                      <input type="text" id="newSubject"><br>
+                      <button id="addRowButton">Add Row</button>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="faq-question">
+              <input id="q2" type="checkbox" class="panel">
+              <div class="plus">+</div>
+              <label for="q2" class="panel-title">Credits</label>
+              <div class="panel-content">
+                  <h4>Developer : Madhav Gupta (2K21/CO/262)</h4>
+                  <h4>UI design : Mrinal Deb (2K21/CO/292)</h4>
+              </div>
+            </div>
 
-        <button id="addRowButton">Add Row</button>
+            <div class="faq-question">
+                <input id="q3" type="checkbox" class="panel">
+                <div class="plus">+</div>
+                <label for="q3" class="panel-title">Report Bug</label>
+                <div class="panel-content">
+                    <h4> Contact : 8851737950 </h4>
+                    <h4> Mail : <a href="mailto:madhavgupta_co21a5_07@dtu.ac.in" >madhavgupta_co21a5_07@dtu.ac.in</a> </h4>
+                </div>
+              </div>
+              <img src="bg.png" alt="Your Image" class="image">
 
     </div>
+   
 
     <script src="script.js"></script>
     <script src="names.js"></script>
     <script src="student.js"></script>
     <script src="dates.js"></script>
     <script src="timings.js"></script>
-    <footer>
-        <div class="footer-credits">
-            <p>Developer: <span class="developer-name">Madhav Gupta</span></p>
-            <p>UI and Design: <span class="designer-name">Mrinal Deb</span></p>
-        </div>
-    </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="path/to/html2pdf.js"></script>
 
 </body>
 </html>

@@ -1,4 +1,5 @@
 
+var para = document.getElementById("p1");
 function convertDateFormat(inputDate) {
     // Split the input date string into day, month, and year
     var parts = inputDate.split('-');
@@ -97,6 +98,7 @@ document.getElementById("addRollButton").addEventListener("click", function() {
     });
 
     const newRoll = document.getElementById("newRoll").value.toUpperCase();
+    para.innerHTML=`${newRoll} 's DateSheet`;
     let arr;
 
     if(newRoll.substring(0, 4)=="2K21" || newRoll.substring(0, 4)=="2K20" || newRoll.substring(0, 2)=="23" || newRoll.substring(0, 4)=="2K22")
@@ -136,3 +138,48 @@ document.getElementById("addRollButton").addEventListener("click", function() {
     }
 
 });
+
+var crsr = document.querySelector("#cursor");
+document.addEventListener("mousemove", function (dets) {
+    crsr.style.left = dets.x + "px";
+    crsr.style.top = dets.y + "px";
+  });
+
+  var btn99 = document.getElementById("btn99");
+  function getPDF(){
+    console.log("Hi");
+    var HTML_Width = $(".canvas_div_pdf").width();
+    var HTML_Height = $(".canvas_div_pdf").height();
+    var top_left_margin = 15;
+    var PDF_Width = HTML_Width+(top_left_margin*2);
+    var PDF_Height = (PDF_Width*1.5)+(top_left_margin*2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+    
+    var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
+    
+
+    html2canvas($(".canvas_div_pdf")[0],{allowTaint:true}).then(function(canvas) {
+        canvas.getContext('2d');
+        
+        console.log(canvas.height+"  "+canvas.width);
+        
+        
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+        
+        
+        for (var i = 1; i <= totalPDFPages; i++) { 
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+        }
+        
+        pdf.save("HTML-Document.pdf");
+    });
+};
+function generatePDF() {
+    const element = document.querySelector("body");
+    html2pdf().from(element).save();
+}
+  btn99.addEventListener("click",generatePDF);
