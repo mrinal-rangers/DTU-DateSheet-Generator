@@ -824,7 +824,7 @@ const myList = {
     "SPD501": "ADVANCED DIGITAL SIGNAL PROCESSING",
     "SPD503": "IMAGE ANALYSIS AND PROCESSING",
     "SPD5201": "SEMINAR",
-    "SPD5303 ": "Wavelets in Signal Processing",
+    "SPD5303": "Wavelets in Signal Processing",
     "SPD6301": "Data Analytics",
     "SPD6407": "Digital Design and verification",
     "STE501": "STRUCTURAL DYNAMICS",
