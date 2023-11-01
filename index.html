@@ -23,9 +23,9 @@
 
     <div id="main">
         <div class="container" >
-            <div id="box"></div>
-            <div id="mid_box"class="text">
 
+            <div id="box"></div>
+            <div id="mid_box" class="text">
                <p> DTU Exam DateSheet Generator  </p>    
                 <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
                 <button id="addRollButton">Generate</button>
@@ -34,20 +34,26 @@
             <div id="box2" class="c1"></div>
           </div>
           <br><br>
-     <div class="html-content">
-        <p id="p1"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
+     <div  class="html-content" id="main-content">
 
+        <p id="p2"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
+        <p id="p1">  </p>
         <table id="myTable">
             <tr>
                 <th>Date</th>
                 <th>Subject Code</th>
                 <th>Subject Name</th>
+                <th>Timings</th>
+
             </tr>
         </table>
         <br>
+         <center>Generated using <a href="https://bit.ly/DTUexam">DTU Exam DateSheet Generator         </a></center>
+
      </div>
         
-        <button id="btn99">print as PDF</button>
+     <!-- <button id="btn99">print as PDF</button> -->
+     <button id="print">Print</button>
 
     
     <br><br>
@@ -86,10 +92,10 @@
                 <label for="q3" class="panel-title">Report Bug</label>
                 <div class="panel-content">
                     <h4> Contact : 8851737950 </h4>
-                    <h4> Mail : <a href="mailto:mrinalenquiry@gmail.com" >mrinalenquiry@gmail.com</a> </h4>
+                    <h4> Mail : <a href="mailto:madhavgupta_co21a5_07@dtu.ac.in" >madhavgupta_co21a5_07@dtu.ac.in</a> </h4>
                 </div>
               </div>
-
+              <img src="bg.png" alt="Your Image" class="image">
 
     </div>
    
@@ -101,6 +107,11 @@
     <script src="timings.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="path/to/html2pdf.js"></script>
-
+<script>
+    const printBtn=document.getElementById('print')
+    printBtn.addEventListener('click', function(){
+        print();
+    })
+</script>
 </body>
 </html>
