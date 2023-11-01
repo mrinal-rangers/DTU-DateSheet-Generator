@@ -73,14 +73,22 @@ function byRoll(code)
     const newCell1 = newRow.insertCell(0);
     const newCell2 = newRow.insertCell(1);
     const newCell3 = newRow.insertCell(2);
+    const newCell4 = newRow.insertCell(3);
 
     const newDate = myDates[code];
     const newCode = code;
     const newSubject = myList[code];
-
+    if (morning.includes(code)) 
+        newTime = '10:00AM - 1:00PM';
+    else if (evening.includes(code)) 
+        newTime = '2:00PM - 5:00PM';
+    else 
+        newTime = 'Undefined';
+    
     newCell1.innerHTML = formatDateWithLineBreak(newDate);
     newCell2.innerHTML = newCode;
     newCell3.innerHTML = newSubject;
+    newCell4.innerHTML = newTime;
 
 };
 
