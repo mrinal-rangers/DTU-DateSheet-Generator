@@ -3,6 +3,21 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
+<style>
+    @media print{
+        #main *:not(#main-content):not(#main-content *){
+            /* visibility: hidden; */
+            display: none;
+        } 
+         /* #main-content{
+          position: absolute;
+          /* top: 0; */
+          /* left: 0;  */
+         /* } */ 
+    }
+</style>
+
 <body style="margin-left: 0px; margin-right: 0px;">
     <div id="cursor"></div>
 
@@ -10,6 +25,7 @@
         <div class="container" >
             <div id="box"></div>
             <div id="mid_box"class="text">
+
                <p> DTU Exam DateSheet Generator  </p>    
                 <input type="text" id="newRoll" placeholder="Enter Roll No (eg. 2K21/CO/262)">
                 <button id="addRollButton">Generate</button>
@@ -20,6 +36,7 @@
           <br><br>
      <div class="html-content">
         <p id="p1"> DateSheet for B.Tech Odd End Semester Examination 2023-24</p>
+
         <table id="myTable">
             <tr>
                 <th>Date</th>
@@ -72,6 +89,7 @@
                     <h4> Mail : <a href="mailto:mrinalenquiry@gmail.com" >mrinalenquiry@gmail.com</a> </h4>
                 </div>
               </div>
+
 
     </div>
    
