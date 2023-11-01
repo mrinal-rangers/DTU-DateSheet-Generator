@@ -80,6 +80,8 @@ function byRoll(code)
     const newSubject = myList[code];
     if (morning.includes(code)) 
         newTime = '10:00AM - 1:00PM';
+    else if(morningFEC.includes(code))
+        newTime = '10:00AM - 12:00PM'
     else if (evening.includes(code)) 
         newTime = '2:00PM - 5:00PM';
     else 
